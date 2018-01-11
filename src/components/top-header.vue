@@ -33,7 +33,7 @@ export default {
   },
   methods:{
   	handleSelect(key, keyPath) {
-      console.log(key, keyPath);
+      // console.log(key, keyPath);
       // this.activePath = key
       // localStorage.setItem('currentPath',key)
       // this.$router.push({

@@ -6,7 +6,7 @@ import {routers} from './router'
 Vue.use(Router)
 
 const routerConfig = {
-  mode: 'history', // 后端支持可开
+  // mode: 'history', // 后端支持可开
   // scrollBehavior: () => ({ y: 0 }),
   routes: routers
 }
