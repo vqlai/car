@@ -1,0 +1,133 @@
+// 地图弹窗样式
+#map-dialog{
+	margin-top: 8px;
+}
+#map-dialog .title{
+	background: #62c65e;
+	color: #fff;
+	height: 30px;
+	line-height: 30px;
+	display: flex;
+	justify-content: space-between;
+}
+#map-dialog .title .left{
+	margin-left: 20px;
+	font-size: 14px;
+	position: relative;
+}
+#map-dialog .title .left:before{
+	position: absolute;
+	top: 10px;
+	left: -16px;
+	content: ' ';
+	width: 14px;
+	height: 14px;
+	background: url('../images/map/s-car.png') no-repeat;
+	background-size: 100%;
+}
+#map-dialog .title .right{
+	padding-right: 20px;
+}
+#map-dialog .title .right span{
+	display: inline-block;
+	margin: 0 15px 0 20px;
+	font-size: 14px;
+	position: relative;
+}
+#map-dialog .title .right span:nth-of-type(1):before{
+	position: absolute;
+	top: 11px;
+	left: -18px;
+	content: ' ';
+	width: 14px;
+	height: 14px;
+	background: url('../images/map/power.png') no-repeat;
+	background-size: 100%;
+}
+#map-dialog .title .right span:nth-of-type(2):before{
+	position: absolute;
+	top: 8px;
+	left: -18px;
+	content: ' ';
+	width: 13px;
+	height: 13px;
+	background: url('../images/map/gps.png') no-repeat;
+	background-size: 100%;
+}
+#map-dialog .title .right span:nth-of-type(3):before{
+	position: absolute;
+	top: 9px;
+	left: -18px;
+	content: ' ';
+	width: 12px;
+	height: 12px;
+	background: url('../images/map/signal.png') no-repeat;
+	background-size: 100%;
+}
+#map-dialog ul.content {
+	margin-top: 6px;
+	font-size: 14px;
+	border: 1px solid #dadada;
+}
+#map-dialog ul.content li{
+	border-bottom: 1px solid #dadada;
+}
+#map-dialog ul.content li:last-child{
+	border: none;
+}
+#map-dialog ul.content li .left{
+	float: left;
+	width: 54%;
+}
+#map-dialog ul.content li .right{
+	float: right;
+	width: 46%;
+}
+#map-dialog ul.content li .left span:first-child{
+	width: 60px;
+	height: 20px;
+	line-height: 20px;
+}
+#map-dialog ul.content li .right span:first-child{
+	width: 30px;
+	height: 20px;
+	line-height: 20px;
+}
+#map-dialog ul.content li .left span:first-child,
+#map-dialog ul.content li .right span:first-child{
+	display: inline-block;
+	background: #f0f0f0;
+	padding: 10px 12px;
+}
+#map-dialog ul.content li .left span:last-child,
+#map-dialog ul.content li .right span:last-child{
+	display: inline-block;
+	padding: 10px 0px 10px 2px;
+}
+
+#map-dialog ul.content li .left.position{
+	width: 100%;
+}
+#map-dialog .btns{
+	padding-top: 20px;
+}
+#map-dialog .btns a{
+	background: #f0f0f0;
+	padding: 10px 20px;
+	text-decoration: none;
+	margin-right: 10px;
+	color: #333333;
+	font-size: 14px;
+}
+
+// 清除浮动
+.clearfix{
+  zoom: 1;
+}
+.clearfix:after{
+  content:" ";
+  height: 0;
+  display: block;
+  clear: both;
+  visibility: hidden;
+}
