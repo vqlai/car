@@ -1,0 +1,42 @@
+.fence{
+	width: 100%;
+	height: 100%;
+  .el-container{
+    width: 100%;
+    height: 100%;
+    .el-main {
+      padding: 0;
+      background-color: #E9EEF3;
+      color: #333;
+      position: relative;
+      ul.map-fence-btns{
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        display: flex;
+        z-index: 12;
+        background: #fff;
+        border: 1px solid #e4dcdc;
+      }
+      ul.map-fence-btns li{
+        flex: 1;
+        padding: 10px 20px;
+        border-right: 1px solid #eee;
+        font-size: 20px;
+        color: #167ef2;
+      }
+      ul.map-fence-btns li:last-child{
+        border: none;
+      }
+      ul.map-fence-btns li.active{
+        color: #fff;
+        background: #167ef2;
+      }
+    }
+    .el-aside {
+      height: 100%;
+      background-color: #fff;
+      color: #333;
+    }
+  }
+}
