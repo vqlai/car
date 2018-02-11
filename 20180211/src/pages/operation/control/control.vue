@@ -83,7 +83,7 @@ export default {
           })
           // send发送消息，发送前端消息
           this.stompClient.send("/web/remote_control", {}, JSON.stringify({
-            'vihicle_number' : this.carNumber,
+            'vehicle_number' : this.carNumber,
             'cmd_type': type,
             'user_id': 100
           }))

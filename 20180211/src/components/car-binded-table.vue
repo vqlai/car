@@ -5,13 +5,13 @@
 	  highlight-current-row
 	  style="width: 100%">
 	  <el-table-column
-	    prop="carNumber"
-	    label="车牌号"
-	    width="180">
+	    prop="index"
+	    width="160"
+	    label="索引">
 	  </el-table-column>
 	  <el-table-column
-	    prop="status"
-	    label="状态">
+	    prop="carNumber"
+	    label="车牌号">
 	  </el-table-column>
 	</el-table>
 </template>
@@ -39,6 +39,18 @@
 	  	_getCarNumberByFence(params){
 	  		getCarNumberByFence(params).then((res)=>{
 	  			console.log(res)
+	  			if(res.data.ret == 0){
+	  				this.tableData = []
+	  				let cacheData = res.data.datas.monitored_person
+	  				if(!cacheData.length){
+	  					for(let [index,item] of cacheData.entries()){
+	  						let obj = {}
+	  						obj.index = index
+	  						obj.carNumber = item
+	  						this.tableData.push(obj)
+	  					}
+	  				}
+	  			}
 	  		})
 	  	}
 	  }
