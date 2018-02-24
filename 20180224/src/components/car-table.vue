@@ -109,8 +109,10 @@ export default {
     setTableHeight(sence){ // sence：1表示地图场景，2表示窗口打开场景
       if(sence === 1){
         this.tableHeight = window.innerHeight - (60+20+40+34+32)
+        this.pageSize = 15
       }else if(sence === 2){
-        this.tableHeight = 450
+        this.tableHeight = null
+        this.pageSize = 10
       }else{
 
       }

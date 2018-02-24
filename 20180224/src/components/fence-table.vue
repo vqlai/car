@@ -54,11 +54,11 @@
     </el-pagination>
     <el-dialog :title="bindDeviceDialogTitle" :visible.sync="bindDeviceDialog" width="30%" top="8vh">
       <!-- value为tab默认选中页 -->
-      <el-tabs :value="currentTab" @tab-click="onTabClick" type="card">
-        <el-tab-pane label="绑定新车辆" name="binding">
+      <el-tabs value="bindingTab" @tab-click="onTabClick" type="card" v-if="bindDeviceDialog">
+        <el-tab-pane label="绑定新车辆" name="bindingTab">
           <carTable :showSelection="true" :tableScene="2" @onCarTableSelection="onCarTableSelection"></carTable>
         </el-tab-pane>
-        <el-tab-pane label="已绑定车辆" name="binded">
+        <el-tab-pane label="已绑定车辆" name="bindedTab">
           <carBindedTable :fenceId="bindCarData.fenceId" v-if="isCarBindedTable"></carBindedTable>
         </el-tab-pane>
       </el-tabs>
@@ -92,7 +92,7 @@ export default {
         carNumber: ''
       },
       isCarBindedTable: false,
-      currentTab: 'binding'
+      // currentTab: 'bindingTab'
     }
   },
   computed:{
@@ -132,12 +132,11 @@ export default {
     // 获取围栏所有绑定的车辆
     // 新增围栏按钮
     onAddClick(row) {
-      this.currentTab = 'binding'
+      // this.currentTab = 'bindingTab'
       this.bindDeviceDialogTitle = `绑定围栏-${row.fence_name}`
       this.bindDeviceDialog = true
       this.bindCarData.fenceId = row.fence_id
       this.isCarBindedTable = false 
-      console.log(this.currentTab)
     },
     // 删除围栏按钮
     onDeleteClick(row){
@@ -202,7 +201,7 @@ export default {
     // 绑定围栏弹窗tab切换事件
     onTabClick(tab){
       console.log(tab.name)
-      if(tab.name == "binded") this.isCarBindedTable = true
+      if(tab.name == "bindedTab") this.isCarBindedTable = true
     },
   	// 分页点击事件
     onCurrentChange(page){

@@ -60,7 +60,7 @@
   	  </el-row>
     </el-header>
     <el-breadcrumb separator-class="el-icon-arrow-right" v-show="showBreadcrumb">
-      <el-breadcrumb-item v-for="item in breadcrumb" :to="{ path: item.path }">{{item.title}}</el-breadcrumb-item> 
+      <el-breadcrumb-item v-for="item in breadcrumb" :to="{ path: item.path }" :key="item.name">{{item.title}}</el-breadcrumb-item> 
     </el-breadcrumb>
   </div>
 </template>
@@ -74,7 +74,7 @@ export default {
     	currentPath: null,
       username: 'admin',
       breadcrumb: [], // 存储面包屑路径
-      logoutDialog: false,
+      logoutDialog: false, // 退出弹窗
       showBreadcrumb: false
     }
   },
@@ -95,7 +95,6 @@ export default {
       // console.log(this.$route)
       // console.log(to.name)
       // console.log(appRouter)
-      // this.getBreadcrumb(to.name)
       if(to.name === 'Index'){
         this.showBreadcrumb = false
       }else{
