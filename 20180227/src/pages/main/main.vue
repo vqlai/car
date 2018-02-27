@@ -21,10 +21,6 @@ export default {
       return this.$route.name !== undefined? this.$route.name + +new Date(): this.$route + +new Date()
     }
   },
-  mounted() {
-  },
-  methods:{
-  },
   components:{
   	topHeader,
   	btmFooter

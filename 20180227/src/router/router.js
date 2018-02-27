@@ -27,11 +27,11 @@ export const page404 = {
 export const otherRouter = {
   path: '/',
   // name: 'index',
-  title: '首页',
+  // title: '首页',
   component: Main,  // 主组件
   redirect: '/index',  // 设置空url跳转到home页面
   children: [  // 子路由，显示在主组件的<router-view></router-view>里
-    { path: 'index', title:'首页', name: 'Index', component: _import('index/index')} // , title: {i18n: 'home'}
+    { path: 'index', title:'首页', name: 'index', component: _import('index/index')} // , title: {i18n: 'home'}
   ]
 }
 

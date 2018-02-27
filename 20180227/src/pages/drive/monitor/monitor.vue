@@ -41,9 +41,6 @@ export default {
     return {
       mapObj: null, // 地图对象
       // trackDialogData: [{
-      //   create_time: '',
-      //   entity_name: '',
-      //   entity_desc: ''
       // }],
       // trackDialog: false,
       multipleSelection: null // 多选按钮值

@@ -78,7 +78,6 @@ export default {
       // this.currentPath = this.$route.path
       // console.log(this.$route)
       // console.log(to.name)
-      // console.log(appRouter)
       this.getBreadcrumb()
     }
   },
