@@ -4,7 +4,7 @@ let qs = require('qs')
 // 获取车辆绑定
 export async function getBindCar(data) {
 	return await ax({
-		url: `/car/get_info`,
+		url: `/fence/find_unlock_vehicles`,
 		method: 'post',
 		data: qs.stringify({...data})
 	})

@@ -73,7 +73,8 @@ export default {
     tableScene: { // 1表示地图场景，2表示窗口打开场景
       type: Number,
       default: 1
-    } 
+    },
+    fenceId: Number 
   },
   data() {
     return{
@@ -121,6 +122,8 @@ export default {
       this.loading = true
       this.tableData = []
       let params = {
+        fence_id: this.fenceId, // 围栏号
+        vehicle_number: this.searchText, // 车牌号
         page: this.currentPage, // 当前页索引
         page_size: this.pageSize // 每页大小
       }

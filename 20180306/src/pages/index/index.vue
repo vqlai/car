@@ -45,7 +45,6 @@ export default {
         {title: '离线车辆', value: 0,index: 4, type: 'offline'},
       ],
       loading: true
-
     }
   },
   mounted() {

@@ -56,7 +56,7 @@
       <!-- value为tab默认选中页 -->
       <el-tabs value="bindingTab" @tab-click="onTabClick" type="card" v-if="bindDeviceDialog">
         <el-tab-pane label="绑定新车辆" name="bindingTab">
-          <carTable :showSelection="true" :tableScene="2" @onCarTableSelection="onCarTableSelection"></carTable>
+          <carTable :showSelection="true" :tableScene="2" @onCarTableSelection="onCarTableSelection" :fenceId="bindCarData.fenceId"></carTable>
         </el-tab-pane>
         <el-tab-pane label="已绑定车辆" name="bindedTab">
           <carBindedTable :fenceId="bindCarData.fenceId" v-if="isCarBindedTable"></carBindedTable>
@@ -132,6 +132,7 @@ export default {
     // 获取围栏所有绑定的车辆
     // 新增围栏按钮
     onAddClick(row) {
+      console.log(row)
       // this.currentTab = 'bindingTab'
       this.bindDeviceDialogTitle = `绑定围栏-${row.fence_name}`
       this.bindDeviceDialog = true

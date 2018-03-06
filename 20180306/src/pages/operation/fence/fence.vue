@@ -283,7 +283,7 @@ export default {
     },
     // 围栏列表行点击事件
     onFenceTableCellClick(row, column, cell, event){
-      console.log(row)
+      // console.log(row)
       this.onClearOverlay()
       if(row.type == 1){
         getCircle(new BMap.Point(row.longitude, row.latitude), row.radius)
