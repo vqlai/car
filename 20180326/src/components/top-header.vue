@@ -1,0 +1,269 @@
+<template>
+  <div class="top-header">
+  	<!-- 注意el-header/el-footer默认高度是60px而且是动态设置绑定的，可通过element的header属性设置-->
+    <el-header>
+  	  <el-row type="flex">
+  	    <el-col :span="5">
+          <div class="logo">
+            <!-- <img src="../common/images/logo.png" alt=""> -->
+            <img src="../common/images/logo2.png" alt="">
+          </div>
+        </el-col>
+  	    <el-col :span="16">
+  	    	<el-menu :default-active="currentPath" active-text-color="#409EFF" menu-trigger="hover" mode="horizontal" @select="onMenuSelect" router>
+  	    	  <el-menu-item index="/index">首页</el-menu-item>
+            <el-submenu :index="father.path" v-for="father in menuArray" :key="father.name">
+              <template slot="title">{{father.meta.title}}</template>
+                <el-menu-item :index="`${father.path}/${child.path}`" v-for="child in father.children" :key="child.name">{{child.meta.title}}</el-menu-item>
+            </el-submenu>
+  	    	</el-menu>
+  	    </el-col>
+  	    <el-col :span="3">
+          <div class="btns">
+            <el-badge is-dot class="item" :hidden="isDot">
+              <i class="el-icon-message" @click="onBadgeClick"></i>
+            </el-badge>
+            <el-dropdown trigger="click" placement="bottom" @command="onMenuCommand">
+              <span class="el-dropdown-link">
+                您好，{{username}}<i class="el-icon-arrow-down el-icon--right"></i>
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item command="modify">密码修改</el-dropdown-item>
+                <el-dropdown-item command="logout">安全退出</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </div>  
+        </el-col>
+  	  </el-row>
+    </el-header>
+    <el-breadcrumb separator-class="el-icon-arrow-right" v-show="showBreadcrumb">
+      <el-breadcrumb-item v-for="(item,index) in breadcrumb" :key="item.name">
+        <span v-if="index > 0" class="no-redirect">{{item.meta.title}}</span>
+        <router-link v-else :to="{ path: item.path }">{{item.meta.title}}</router-link>
+      </el-breadcrumb-item> 
+    </el-breadcrumb>
+  </div>
+</template>
+
+<script>
+import {appRouter} from '@/router/router'
+import {logout,getWarningDot,setWarningDot} from '@/api/login'
+export default {
+  name: 'top-header',
+  data () {
+    return {
+    	currentPath: null,
+      username: sessionStorage.getItem('username'),
+      breadcrumb: [], // 存储面包屑路径
+      showBreadcrumb: false,
+      menuArray: appRouter,
+      isDot: false,
+      userid: sessionStorage.getItem('userid')
+    }
+  },
+  mounted() {
+    setTimeout(()=>{
+      // this.currentPath = this.$route.path
+      // console.log(this.$route)
+      this.getBreadcrumb()
+      this._getWarningDot()
+    },20)
+  },
+  watch: {
+    $route (to) {
+      // this.currentPath = this.$route.path
+      // console.log(this.$route)
+      // console.log(to.name)
+      this.getBreadcrumb()
+      this._getWarningDot()
+    }
+  },
+  methods:{
+  	onMenuSelect(key, keyPath) {
+      // console.log(key, keyPath)
+      // console.log(this.$route)
+      // this.activePath = key
+      // localStorage.setItem('currentPath',key)
+      // this.$router.push({
+      //   path: redirect
+      // },()=>{})
+    },
+    // 根据路由组合面包屑
+    getBreadcrumb(){
+      this.currentPath = this.$route.path
+      let parentName = this.$route.matched[0].name
+      let childName = this.$route.matched[1].name
+      this.breadcrumb = []
+      this.breadcrumb.push({path: '/',name: 'index', meta:{title: '首页'}})
+      this.showBreadcrumb = true // 显示面包屑
+      if(parentName === "drive"){
+        for (let item of appRouter[0].children){
+          if(childName == item.name){
+            this.breadcrumb.push({path: '',name: 'drive', meta:{title: '行车管理'}})
+            this.breadcrumb.push(item)
+          }
+        }
+      }else if(parentName === "operation"){
+        for (let item of appRouter[1].children){
+          if(childName == item.name){
+            this.breadcrumb.push({path: '',name: 'operation', meta:{title: '运营管理'}})
+            this.breadcrumb.push(item)
+          }
+        }
+      }else if(parentName === "traffic"){
+        for (let item of appRouter[2].children){
+          if(childName == item.name){
+            this.breadcrumb.push({path: '',name: 'operation', meta:{title: '车务管理'}})
+            this.breadcrumb.push(item)
+          }
+        }
+      }else{
+        this.showBreadcrumb = false
+      }
+    },
+    onMenuCommand(item){ // 处理dropdown事件
+      // console.log(item)
+      if(item==="modify"){
+
+      }else if(item === "logout"){
+        logout().then(res=>{
+          if(res.data.ret == 0){
+            this.$router.push({ name: 'login'})
+            sessionStorage.removeItem('username')
+            sessionStorage.removeItem('userid')
+            sessionStorage.removeItem('token')
+          }else{
+            this.$message({
+              message: res.data.msg,
+              type: 'error'
+            })
+          }
+        })
+      }
+    },
+    _getWarningDot(){
+      if(this.userid){
+        getWarningDot({user_id: this.userid}).then(res=>{
+          let {ret,datas} = res.data
+          if(ret == 0){
+            this.isDot = (datas.is_read == 1) ? false:true
+          }
+        })
+      }
+    },
+    onBadgeClick(){
+      if(this.userid){
+        setWarningDot({user_id: this.userid,is_read:2}).then(res=>{
+          if(res.data.ret == 0){
+            this.isDot = true
+            this.$router.push({name: 'alarm'})
+          }
+        })
+      }
+    }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="less">
+  .top-header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+  	.el-header {
+  		// display: flex;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      // height: 60px;
+      line-height: 60px;
+      background-color: #fff;
+      color: #333;
+      .el-row{
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        border-bottom: 1px solid #e6e6e6;
+        .logo{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          padding-left: 20%;
+          box-sizing: border-box;
+        }
+        .el-menu{
+          height: 60px;
+          /*注意box-sizing只在设置了宽高的元素中生效*/
+          box-sizing: border-box;
+          .el-menu-item{
+            height: 59px;
+            box-sizing: border-box;
+          }
+          .el-menu-item:hover{
+            color: #409EFF;
+            // border-bottom-color: #409EFF!important;
+            // background: #e6eff9;
+          }
+          .el-menu-item:focus{
+            color: #909399;
+          }
+          .el-submenu{
+            .el-menu-item{
+              height: 36px;
+            }
+            i{
+              font-size: 14px!important;
+            }
+          }
+          .el-submenu.is-active i{
+            color: #409EFF!important;
+          }
+          .el-submenu:hover,.el-submenu:active{
+            color: #409EFF!important;
+            i{
+              color: #409EFF!important;
+            }
+          }
+        }
+        .btns{
+          font-size: 14px;
+          padding-left: 15%;
+          .el-dropdown-link {
+            cursor: pointer;
+            color: #409EFF;
+          }
+          .el-badge{
+            line-height: 20px;
+            margin-right: 10px;
+            .el-icon-message{
+              font-size: 18px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    .el-breadcrumb{
+      width: 100%;
+      height: 25px;
+      line-height: 25px;
+      padding-left: 8%;
+      overflow: hidden;
+      background: #fff;
+      box-sizing: border-box;
+      border-bottom: 1px solid #e6e6e6;
+      .no-redirect{
+        cursor: text;
+        color: #606266;
+      }
+      a{
+        text-decoration: none;
+      }
+    }
+  }  
+</style>
