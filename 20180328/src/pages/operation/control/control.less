@@ -1,0 +1,102 @@
+.control{
+  .el-container{
+    .el-main {
+      padding: 0;
+      color: #333;
+      height: auto;
+      .car-box{
+        width: 100%;
+        min-height: 560px;
+        padding-top: 30px;
+        box-sizing: border-box;
+        position: relative;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction: row;
+        .car{
+          width: 240px;
+          height: 560px;
+          position: relative;
+          background: url('../../../common/images/control/car.png') no-repeat;
+          background-size: 100%;
+          background-position: center;
+          .door{
+            position: absolute;
+            top: 45%;
+            left: 0;
+            width: 100%;
+            .left{
+              float: left;
+              margin-left: -35%;
+              width: 120px;
+              height: 62px;
+              background: url('../../../common/images/control/close-left.png') no-repeat;
+              background-size: 100%;
+            }
+            .right{
+              float: right;
+              margin-right: -35%;
+              width: 120px;
+              height: 62px;
+              background: url('../../../common/images/control/close-right.png') no-repeat;
+              background-size: 100%;
+            }
+            &.on{
+              .left{
+                background: url('../../../common/images/control/open-left.png') no-repeat;
+                background-size: 100%;
+              }
+              .right{
+                background: url('../../../common/images/control/open-right.png') no-repeat;
+                background-size: 100%;
+              }
+            }
+          }
+          .center{
+            position: absolute;
+            top: 28%;
+            left: 38%;
+            width: 62px;
+            height: 62px;
+            background: url('../../../common/images/control/voice-off.png') no-repeat;
+            background-size: 100%;
+            &.on{
+              background: url('../../../common/images/control/voice-on.png') no-repeat;
+              background-size: 100%;
+            }
+          }
+        }
+      }
+      ul{
+        width: 100%;
+        height: auto;
+        padding: 30px 0;
+        box-sizing: border-box;
+        text-align: center;
+        user-select: none;
+        li{
+          display: inline-block;
+          font-size: 16px;
+          line-height: 16px;
+          border: 1px solid #1a9bfc;
+          border-radius: 2px;
+          padding: 8px 40px;
+          margin: 0 20px;
+          cursor: pointer;
+          color: #1a9bfc;
+          // &.on{
+          //   color: #fff;
+          //   background: #fc662c;
+          //   border: 1px solid #fc662c;
+          // }
+        }
+      }
+    }
+    .el-aside {
+      height: 100%;
+      background-color: #fff;
+      color: #333;
+    }
+  }
+}
