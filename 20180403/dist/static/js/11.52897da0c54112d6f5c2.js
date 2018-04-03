@@ -1,0 +1,2 @@
+webpackJsonp([11],{F8AH:function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var a={render:function(){var e=this.$createElement;return(this._self._c||e)("section",{staticClass:"mileage main-panel"},[this._v("\n\t开发中...\n")])},staticRenderFns:[]};var i=t("Z0/y")({name:"mileage",data:function(){return{}},mounted:function(){},methods:{},components:{}},a,!1,function(e){t("HkmB")},"data-v-b430d5a8",null);n.default=i.exports},HkmB:function(e,n){}});
+//# sourceMappingURL=11.52897da0c54112d6f5c2.js.map

@@ -1,0 +1,2 @@
+webpackJsonp([25],{DLUp:function(e,n){},DmDh:function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var c={render:function(){var e=this.$createElement;return(this._self._c||e)("section",{staticClass:"check main-panel"},[this._v("\n\t开发中...\n")])},staticRenderFns:[]};var a=t("Z0/y")({name:"check",data:function(){return{}},mounted:function(){},methods:{},components:{}},c,!1,function(e){t("DLUp")},"data-v-2f91ef6e",null);n.default=a.exports}});
+//# sourceMappingURL=25.725f5104ee85e707219e.js.map

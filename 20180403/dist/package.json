@@ -1,0 +1,19 @@
+{
+  "name": "car-net",
+  "version": "1.0.0",
+  "description": "car-net",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "iot",
+    "car-net"
+  ],
+  "author": "vqlai",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "http-proxy-middleware": "^0.17.4"
+  }
+}

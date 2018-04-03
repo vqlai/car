@@ -1,0 +1,2 @@
+webpackJsonp([26],{DGBI:function(n,t,e){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var a={render:function(){var n=this.$createElement;return(this._self._c||n)("section",{staticClass:"fix main-panel"},[this._v("\n\t开发中...\n")])},staticRenderFns:[]};var i=e("Z0/y")({name:"fix",data:function(){return{}},mounted:function(){},methods:{},components:{}},a,!1,function(n){e("Nflx")},"data-v-16cd5841",null);t.default=i.exports},Nflx:function(n,t){}});
+//# sourceMappingURL=26.ca89ec27840d098a4806.js.map

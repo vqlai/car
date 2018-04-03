@@ -1,0 +1,2 @@
+webpackJsonp([23],{"+9Za":function(n,e){},cEZE:function(n,e,t){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var a={render:function(){var n=this.$createElement;return(this._self._c||n)("section",{staticClass:"insurance main-panel"},[this._v("\n\t开发中...\n")])},staticRenderFns:[]};var s=t("Z0/y")({name:"insurance",data:function(){return{}},mounted:function(){},methods:{},components:{}},a,!1,function(n){t("+9Za")},"data-v-40bfd222",null);e.default=s.exports}});
+//# sourceMappingURL=23.ce616f1f8d4829a61097.js.map

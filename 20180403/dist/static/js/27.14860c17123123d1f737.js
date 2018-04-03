@@ -1,0 +1,2 @@
+webpackJsonp([27],{ZIyL:function(t,e){},xtWd:function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var a={render:function(){var t=this.$createElement;return(this._self._c||t)("section",{staticClass:"illegal main-panel"},[this._v("\n\t开发中...\n")])},staticRenderFns:[]};var i=n("Z0/y")({name:"illegal",data:function(){return{}},mounted:function(){},methods:{},components:{}},a,!1,function(t){n("ZIyL")},"data-v-08350253",null);e.default=i.exports}});
+//# sourceMappingURL=27.14860c17123123d1f737.js.map

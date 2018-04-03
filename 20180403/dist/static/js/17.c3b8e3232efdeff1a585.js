@@ -1,0 +1,2 @@
+webpackJsonp([17],{tO5P:function(t,n,e){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var a={render:function(){var t=this.$createElement;return(this._self._c||t)("section",{staticClass:"accident main-panel"},[this._v("\n\t开发中...\n")])},staticRenderFns:[]};var c=e("Z0/y")({name:"accident",data:function(){return{}},mounted:function(){},methods:{},components:{}},a,!1,function(t){e("xrSg")},"data-v-58751306",null);n.default=c.exports},xrSg:function(t,n){}});
+//# sourceMappingURL=17.c3b8e3232efdeff1a585.js.map
